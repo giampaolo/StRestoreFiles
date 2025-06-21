@@ -1,0 +1,32 @@
+[tool.ruff]
+target-version = "py38"
+line-length = 79
+unsafe-fixes = true
+
+[tool.ruff.lint]
+preview = true
+select = [
+    "ALL",
+]
+
+[tool.ruff.lint.isort]
+force-single-line = true  # one import per line
+
+[tool.pytest.ini_options]
+addopts = '''
+    --verbose
+    --capture=no
+    --no-header
+    --tb=short
+    --strict-config
+    --strict-markers
+    --instafail
+    -p no:junitxml
+    -p no:doctest
+    -p no:nose
+    -p no:pastebin
+    -p no:xdist
+    -p instafail
+    -p subtests
+    '''
+testpaths = ["tests/"]
